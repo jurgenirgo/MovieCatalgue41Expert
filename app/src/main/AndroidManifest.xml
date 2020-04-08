@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="jurgen.example.MovieCatalogue41">
+
+    <dist:module dist:instant="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <permission
+        android:name="com.furqoncreative.submission4.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.furqoncreative.submission4.WRITE_DATABASE"
+        android:protectionLevel="normal" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="@xml/backup_descriptor">
+
+        <activity android:name=".view.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.activity.DetailTvActivity" />
+        <activity android:name=".view.activity.DetailMovieActivity" />
+
+        <provider
+            android:name="jurgen.example.MovieCatalogue41.provider.FavoriteProvider"
+            android:authorities="jurgen.example.MovieCatalogue41"
+            android:exported="true"
+            android:readPermission="jurgen.example.MovieCatalogue41.READ_DATABASE"
+            android:writePermission="jurgen.example.MovieCatalogue41.WRITE_DATABASE" />
+    </application>
+
+</manifest>
